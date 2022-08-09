@@ -361,7 +361,6 @@
                       <th>Details</th>
                       <th>Review</th>
                       <th>Rating</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -372,7 +371,6 @@
                       <td>{{$items->ticket_Details}}</td>
                       <td>{{$items->review}}</td>
                       <td>{{$items->rating}}</td>
-                      <td><a href="{{url('/deleteTicket'.$items->id)}}" class="btn btn-danger">Delete</a></td>
                     </tr>
                     @endforeach
                   </tbody>
@@ -723,7 +721,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
-
+  {{--Messgae--}}
+@if (Session::has('success'))
+<span class="text-succuess">{{session('success')}}</span>
+@endif
 
 </body>
 

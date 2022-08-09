@@ -14,9 +14,13 @@ class table_controller extends Controller
         $tickets = Tickets::all(); 
         return view('Dashboard.Ticket_Table.index', compact('tickets'));
     }
+
     public function add(){
         return view('Dashboard.Ticket_Table.add');
     }
+    // public function addTicket(){
+    //     return view('Dashboard.Ticket_Table.addTicket');
+    // }
     public function insert(Request $request){
         $ticket = new Tickets();
         $ticket->ticket_Brief = $request->input('ticket_Brief');
@@ -24,7 +28,12 @@ class table_controller extends Controller
         $ticket->review = $request->input('review');
         $ticket->rating = $request->input('rating');
         $ticket->save();
-        return redirect('/Tickets/add') ->with('Status',"Added Data");
+        return redirect('/Tickets') ->with('status',"Added Data");
+    }
+    public function delete($id){
+        $tickets = Tickets::find($id);
+        $tickets->delete();
+        return redirect('/Tickets')->with('status',"Ticket Deleted");
     }
     
 }

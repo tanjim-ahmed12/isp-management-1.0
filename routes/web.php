@@ -25,6 +25,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/MyProfile',[App\Http\Controllers\Admin\FrontViewController::class, 'index']);
 Route::get('/Tickets',[App\Http\Controllers\Admin\table_controller::class, 'index']);
-Route::get('/Tickets/add',[App\Http\Controllers\Admin\table_controller::class, 'add']);
-Route::get('/Billing',[App\Http\Controllers\Admin\FrontViewController::class, 'billing']);
+// Route::get('/Tickets/add',[App\Http\Controllers\Admin\table_controller::class, 'add']);
+
 Route::post('/Tickets/add/insert',[App\Http\Controllers\Admin\table_controller::class, 'insert']);
+// Route::get('/Tickets/addTicket',[App\Http\Controllers\Admin\table_controller::class, 'addTicket']);
+Route::get('/deleteTicket/{id}',[App\Http\Controllers\Admin\table_controller::class, 'delete']);
+// Route::get('/TicketsBechi',[App\Http\Controllers\Admin\table_controller::class, 'ind']);
+
+Route::get('/Billing',[App\Http\Controllers\Billing_Info\Bill_controller::class, 'index']);
+Route::get('/Billing/add',[App\Http\Controllers\Billing_Info\Bill_controller::class, 'billing']);
+Route::post('/Billing/add/insert',[App\Http\Controllers\Billing_Info\Bill_controller::class, 'insert']);
