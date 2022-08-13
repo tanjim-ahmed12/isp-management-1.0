@@ -28,12 +28,12 @@ class table_controller extends Controller
         $ticket->review = $request->input('review');
         $ticket->rating = $request->input('rating');
         $ticket->save();
-        return redirect('/Tickets') ->with('status',"Added Data");
+        return redirect('/Tickets') ->with('Message',"Added New Ticket");
     }
     public function delete($id){
         $tickets = Tickets::find($id);
         $tickets->delete();
-        return redirect('/Tickets')->with('status',"Ticket Deleted");
+        return redirect()->back()->with('message',"Ticket Deleted");
     }
     
 }

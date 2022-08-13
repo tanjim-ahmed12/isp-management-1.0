@@ -1,17 +1,4 @@
-<!--
-=========================================================
-* Argon Dashboard 2 - v2.0.4
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -327,7 +314,7 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                              <h5 class="modal-title" id="exampleModalLabel">Payment</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <form action="{{url('/Billing/add/insert')}}" method="POST" enctype="multipart/form-data">
@@ -350,7 +337,7 @@
                                 </div>
                               </div>
                               <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">submit</button>
+                                <button type="submit" class="btn btn-success">Confirm</button>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                               </div>
@@ -364,32 +351,32 @@
                 </div>
                 <div class="card-body p-3">
                   <div class="row">
-                    <div class="col-md-6 mb-md-0 mb-4">
-                      <input type="radio" name="Payment Method" value="Bkash"> bKash
+                    <div class="col-sm-6 mb-md-0 mb-4">
+                    <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down"></i></button> bKash
                       <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
                         <img class="w-20 me-3 mb-0" src="{{asset('assets\Logo\BkashLogo.png')}}" alt="logo">
                         <h6 class="mb-0">***&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;5885</h6>
                         <i class="fas fa-pencil-alt ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Card"></i>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <input type="radio" name="Payment Method" value="Nagad"> Nagad
+                    <div class="col-md-6 mb-md-0 mb-4">
+                    <button class="btn btn-icon-only btn-rounded btn-outline-warning mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down"></i></button> Nagad
                       <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
                         <img class="w-20 me-3 mb-0" src="{{asset('assets\Logo\NagadLogo.png')}}" alt="logo">
                         <h6 class="mb-0">***&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;5885</h6>
                         <i class="fas fa-pencil-alt ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Card"></i>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <input type="radio" name="Payment Method" value="Nagad"> mastercard
+                    <div class="col-md-6 mb-md-0 mb-4">
+                    <button class="btn btn-icon-only btn-rounded btn-outline-warning mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down"></i></button> mastercard
                       <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
                         <img class="w-20 me-3 mb-0" src="{{asset('assets\Logo\mastercard.png')}}" alt="logo">
                         <h6 class="mb-0">****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;1259</h6>
                         <i class="fas fa-pencil-alt ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Card"></i>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <input type="radio" name="Payment Method" value="Nagad"> VISA
+                    <div class="col-md-6 mb-md-0 mb-4">
+                    <button class="btn btn-icon-only btn-rounded btn-outline-primary mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down"></i></button> VISA
                       <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
                         <img class="w-20 me-3 mb-0" src="{{asset('assets\Logo\visa.png')}}" alt="logo">
                         <h6 class="mb-0">****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;1259</h6>
@@ -424,7 +411,7 @@
                   </div>
                   <div class="d-flex align-items-center text-sm">
                   <strong>Tk. {{$items->Amount}}</strong>
-                    <button class="btn btn-link text-danger text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i><strong>Delete</strong></button>
+                    <!-- <button class="btn btn-link text-danger text-sm mb-0 px-0 ms-4"><i class="fas fa-file-pdf text-lg me-1"></i><strong>Delete</strong></button> -->
                   </div>
                 </li>
                 

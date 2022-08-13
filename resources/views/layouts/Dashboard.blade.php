@@ -65,7 +65,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../pages/virtual-reality.html">
+            <a class="nav-link " href="{{url('/ChangePlan')}}">
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-app text-info text-sm opacity-10"></i>
               </div>
@@ -248,8 +248,8 @@
                         {{ Auth::user()->name }}
                       </h5>
                       <p class="mb-0">
-                        <span class="text-success text-sm font-weight-bolder">.</span>
-                        .
+                        <span class="text-success text-sm font-weight-bolder"></span>
+                        {{ Auth::user()->email }}
                       </p>
                     </div>
                   </div>
@@ -270,7 +270,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Package Type: </p>
                       <h5 class="font-weight-bolder">
-                        5 MBPS
+                      {{ Auth::user()->PackageType }}
                       </h5>
                       <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">.</span>

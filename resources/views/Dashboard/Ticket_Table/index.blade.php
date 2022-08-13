@@ -372,7 +372,7 @@
                       <td>{{$items->ticket_Details}}</td>
                       <td>{{$items->review}}</td>
                       <td>{{$items->rating}}</td>
-                      <td><a href="{{url('/deleteTicket'.$items->id)}}" class="btn btn-danger">Delete</a></td>
+                      <td><a href="{{url('/deleteTicket',$items->id)}}" class="btn btn-danger">Delete</a></td>
                     </tr>
                     @endforeach
                   </tbody>
