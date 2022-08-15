@@ -35,6 +35,6 @@ Route::get('/deleteTicket/{id}',[App\Http\Controllers\Admin\table_controller::cl
 Route::get('/Billing',[App\Http\Controllers\Billing_Info\Bill_controller::class, 'index']);
 Route::get('/Billing/add',[App\Http\Controllers\Billing_Info\Bill_controller::class, 'billing']);
 Route::post('/Billing/add/insert',[App\Http\Controllers\Billing_Info\Bill_controller::class, 'insert']);
-Route::get('/ChangePlan',[App\Http\Controllers\Plan_Controller\plan_controller::class, 'index']);
+Route::get('/ChangePlan',[App\Http\Controllers\Plan_Controller\plan_controller::class, 'showPlans']);
 
-Route::get('/ChangePlan/{id}',[App\Http\Controllers\Plan_Controller\plan_controller::class, 'showPlan']);
+Route::get('/ShowPlan/{id}',[App\Http\Controllers\Plan_Controller\plan_controller::class, 'PlanDetails']);

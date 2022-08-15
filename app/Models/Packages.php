@@ -9,10 +9,11 @@ class Packages extends Model
 {
     use HasFactory;
     use HasFactory;
-    protected $table = 'packages';
+    protected $table = 'plans';
     protected $fillable = [
         'Package_Name',
         'Package_ID',
         'Package_Rate',
+        'Package_Speed',
     ];
 }

@@ -234,94 +234,36 @@
                 <span class="font-weight-bold">5 MBPS</span> in 2021
               </p> -->
                         </div>
-                        <div class="card-body">
-                            @foreach($package as $items)
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex flex-column">
-                                        <!-- <h6 class="mb-4 text-dark font-weight-bold "><strong></strong></h6> -->
-                                        <span class="text-md" style="color:grey"><strong>Package Name: {{$items->Package_Name}}</strong><br>
-                                        <br><strong style="color:blue">Speed: {{$items ->Package_Speed}} </strong></span>
-                                    </div>
-                                    <div class="d-flex align-items-center text-sm">
-                                        <!-- <strong>Tk. </strong> -->
-                                        <a href="{{url('/ShowPlan',$items->id)}}" class="btn btn-danger"><strong>Show Pricing</strong></a>
-                                    </div>
-                                </li>
-
-                            </ul>
-                            @endforeach
-
-                            <div class="chart">
-                                <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7 mb-lg-0 mb-4">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add Tickets
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Speed</th>
+                                            <th>Rate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($package as $items)
+                                        <tr>
+                                            <td>{{$items->Package_ID}}</td>
+                                            <td>{{$items->Package_Name}}</td>
+                                            <td>{{$items->Package_Rate}}</td>
+                                            <td>{{$items->Package_Speed}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="chart">
+                                    <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
                                 </div>
-                                <form action="{{url('/Tickets/add/insert')}}" method="POST" enctype="multipart/form-data">
-                                    <div class="modal-body">
-
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="" class="">Ticket Subject</label>
-                                                <input type="text" class="form-control" name="ticket_Brief">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="" class="">Details</label>
-                                                <input type="text" class="form-control" name="ticket_Details">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="" class="">Review</label>
-                                                <input type="text" class="form-control" name="review">
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="" class="">Rating</label>
-                                                <input type="text" class="form-control" name="rating">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">submit</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
-                    <!-- End Modal -->
-
-
-
-
                 </div>
+
 
 
             </div>
