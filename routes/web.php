@@ -38,3 +38,4 @@ Route::post('/Billing/add/insert',[App\Http\Controllers\Billing_Info\Bill_contro
 Route::get('/ChangePlan',[App\Http\Controllers\Plan_Controller\plan_controller::class, 'showPlans']);
 
 Route::get('/ShowPlan/{id}',[App\Http\Controllers\Plan_Controller\plan_controller::class, 'PlanDetails']);
+Route::get('/ChangePackage',[App\Http\Controllers\Plan_Controller\plan_controller::class, 'changePlan']);

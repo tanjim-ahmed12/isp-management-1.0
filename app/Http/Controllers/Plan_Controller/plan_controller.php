@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Plan_Controller;
 
 use App\Http\Controllers\Controller;
 use App\Models\Packages;
+use App\Models\User;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -22,5 +23,8 @@ class plan_controller extends Controller
     {
         $package = Packages::find($id);
         return view('Dashboard.Change_Plan.PlanDetails', compact('package'));
+    }
+    public function changePlan(){
+        // 
     }
 }
