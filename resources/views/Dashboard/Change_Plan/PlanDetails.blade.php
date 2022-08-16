@@ -272,7 +272,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Change Monthly Package</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <form action="{{url('/ChangePackage')}}" method="get" enctype="multipart/form-data">
+                  <form action="{{url('/ChangePackage',$package->id)}}" method="get" enctype="multipart/form-data">
                     <div class="modal-body">
 
                       @csrf
@@ -317,7 +317,8 @@
               </div>
             </div>
             <!-- End Modal -->
-          </div>  
+          </div> 
+          <a href="{{url('/ChangePlan')}}" class="btn btn-danger">Go back</a> 
     </main>
 
     @yield('content')

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Plan_Controller;
 
-use App\Http\Controllers\Controller;
-use App\Models\Packages;
 use App\Models\User;
+use App\Models\Packages;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class plan_controller extends Controller
@@ -24,7 +25,12 @@ class plan_controller extends Controller
         $package = Packages::find($id);
         return view('Dashboard.Change_Plan.PlanDetails', compact('package'));
     }
-    public function changePlan(){
-        // 
+    public function changePlan(Request $request,$id){
+        $data = Packages::where('id',$id)->pluck('Package_Speed');
+        $username = User::where('name',Auth::user()->name)->pluck('PackageType');
+        $user = User::all()->where('name',Auth::user()->name);
+        // dd($data,$username);
+        dd($user);
+
     }
 }
