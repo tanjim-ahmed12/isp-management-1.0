@@ -1,0 +1,1 @@
+@extends('resources\views\layouts\includes\sidebar')

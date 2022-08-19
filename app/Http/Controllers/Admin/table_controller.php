@@ -30,6 +30,19 @@ class table_controller extends Controller
         $ticket->save();
         return redirect('/Tickets') ->with('Message',"Added New Ticket");
     }
+    public function edit($id){
+        $edit = Tickets::find($id);
+        return view('Dashboard.Ticket_Table.editTicket', compact('edit'));
+    }
+    public function update(Request $request,$id){
+        $update = Tickets::find($id);
+        $update->ticket_Brief = $request->input('ticket_Brief');
+        $update->ticket_Details = $request->input('ticket_Details');
+        $update->review = $request->input('review');
+        $update->rating = $request->input('rating');
+        $update->update();
+        return redirect('/Tickets') ->with('Message',"Ticket Updated");
+    }
     public function delete($id){
         $tickets = Tickets::find($id);
         $tickets->delete();

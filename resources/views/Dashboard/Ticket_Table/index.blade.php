@@ -35,9 +35,9 @@
       <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
 
-        <!-- <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank"> -->
-        <!-- <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo"> for the main logo  -->
-        <span class="ms-1 font-weight-bold"></span>
+        <a class="navbar-brand m-0" href=" {{url('/home')}} " target="_blank">
+          <img src="{{asset('assets\Others\download.png')}}" class="navbar-brand-img h-100" alt="main_logo">
+          <span class="ms-1 font-weight-bold">Internet Support</span>
         </a>
       </div>
       <hr class="horizontal dark mt-0">
@@ -45,7 +45,7 @@
       <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="{{url('/MyProfile')}}">
+            <a class="nav-link active" href="{{url('/home')}}">
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
               </div>
@@ -157,7 +157,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Package Type: </p>
                       <h5 class="font-weight-bolder">
-                      {{ Auth::user()->PackageType }}
+                        {{ Auth::user()->PackageType }}
                       </h5>
                       <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">.</span>
@@ -180,9 +180,9 @@
                 <div class="row">
                   <div class="col-8">
                     <div class="numbers">
-                      <p class="text-sm mb-0 text-uppercase font-weight-bold">Connection Expiry Date: </p>
+                      <p class="text-sm mb-0 text-uppercase font-weight-bold">Joined Since: </p>
                       <h5 class="font-weight-bolder">
-                        10/10/22
+                        {{Auth::user()->created_at}}
                       </h5>
                       <p class="mb-0">
                         <span class="text-danger text-sm font-weight-bolder">.</span>
@@ -225,112 +225,130 @@
           </div>
         </div>
         <!-- Top Bar info -->
+
         <div class="row mt-6">
-          <div class="col-lg-7 mb-lg-0 mb-4">
-            <div class="card z-index-2 h-100">
-              <div class="card-header pb-0 pt-3 bg-transparent">
-                <h6 class="text-capitalize">Tickets</h6>
-                <!-- <p class="text-sm mb-0">
-                <i class="fa fa-arrow-up text-success"></i>
-                <span class="font-weight-bold">5 MBPS</span> in 2021
-              </p> -->
+          <div class="col-12">
+            <div class="card mb-4">
+              <div class="card-header pb-0">
+                <h6>Session Data</h6>
               </div>
-              <div class="card-body">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>Subject</th>
-                      <th>Details</th>
-                      <th>Review</th>
-                      <th>Rating</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($tickets as $items)
-                    <tr>
-                      <td>{{$items->id}}</td>
-                      <td>{{$items->ticket_Brief}}</td>
-                      <td>{{$items->ticket_Details}}</td>
-                      <td>{{$items->review}}</td>
-                      <td>{{$items->rating}}</td>
-                      <td><a href="{{url('/deleteTicket',$items->id)}}" class="btn btn-danger">Delete</a></td>
-                    </tr>
-                    @endforeach
-                  </tbody>
-                </table>
-                <div class="chart">
-                  <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+              <div class="card-body px-0 pt-0 pb-2 text-center">
+                <div class="table-responsive p-0">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7">ID</th>
+                        <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Subject</th>
+                        <th class="text-center text-uppercase text-secondary text-sm font-weight-bolder opacity-7">Details</th>
+                        <th class="text-center text-uppercase text-secondary text-sm font-weight-bolder opacity-7">Review</th>
+                        <th class="text-center text-uppercase text-secondary text-sm font-weight-bolder opacity-7">Rating</th>
+                        <th class="text-secondary opacity-7">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($tickets as $items)
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{$items->id}}</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-sm font-weight-bold mb-0">{{$items->ticket_Brief}}</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="">{{$items->ticket_Details}}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-sm font-weight-bold">{{$items->review}}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-sm font-weight-bold">{{$items->rating}}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <a href="{{url('/editTicket/'. $items->id)}}" class="btn btn-primary text-sm ms-4"><i class="fas fa-file-pdf text-lg me-1"></i><strong>Edit</strong></a>
+                          <a href="{{url('/deleteTicket/'. $items->id)}}" class="btn btn-danger text-sm ms-4"><i class="fas fa-file-pdf text-lg me-1"></i><strong>Delete</strong></a>
+                        </td>
+                        <td class="align-middle">
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                          </a>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-7 mb-lg-0 mb-4">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Add Tickets
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <form action="{{url('/Tickets/add/insert')}}" method="POST" enctype="multipart/form-data">
-                    <div class="modal-body">
-
-                      @csrf
-                      <div class="row">
-                        <div class="col-md-6">
-                          <label for="" class="">Ticket Subject</label>
-                          <input type="text" class="form-control" name="ticket_Brief">
-                        </div>
-                      </div>
-
-
-                      <div class="row">
-                        <div class="col-md-6">
-                          <label for="" class="">Details</label>
-                          <input type="text" class="form-control" name="ticket_Details">
-                        </div>
-                      </div>
-
-
-                      <div class="row">
-                        <div class="col-md-6">
-                          <label for="" class="">Review</label>
-                          <input type="text" class="form-control" name="review">
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-md-6">
-                          <label for="" class="">Rating</label>
-                          <input type="text" class="form-control" name="rating">
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary">submit</button>
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <!-- End Modal -->
-
-
-
-
           </div>
         </div>
+        <div class="col-lg-7 mb-lg-0 mb-4">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Tickets
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{url('/Tickets/add/insert')}}" method="POST" enctype="multipart/form-data">
+                  <div class="modal-body">
+
+                    @csrf
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="" class="">Ticket Subject</label>
+                        <input type="text" class="form-control" name="ticket_Brief">
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="" class="">Details</label>
+                        <input type="text" class="form-control" name="ticket_Details">
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="" class="">Review</label>
+                        <input type="text" class="form-control" name="review">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="" class="">Rating</label>
+                        <input type="text" class="form-control" name="rating">
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- End Modal -->
+
+
+
+
+        </div>
+      </div>
     </main>
   </div>
   @yield('content')

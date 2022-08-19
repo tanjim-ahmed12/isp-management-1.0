@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Tickets;
+use App\Models\Billing_Info;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.Dashboard');
+        // $username = User::all();
+        $lastPayment = Billing_Info::all()->where('id')->last();
+        $ticketBrief = Tickets::all();
+        return view('layouts.Dashboard', compact('lastPayment','ticketBrief'));
     }
 }
