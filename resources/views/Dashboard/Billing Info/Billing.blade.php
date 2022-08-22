@@ -272,26 +272,17 @@
                       </div>
                     </div>
                     <div class="card-body pt-0 p-3 text-center">
-                      <h6 class="text-center mb-0">..</h6>
-                      <span class="text-xs">..</span>
+                      <h6 class="text-center mb-0">Current Package</h6>
+                      
                       <hr class="horizontal dark my-3">
-                      <h5 class="mb-0">..</h5>
+                      <h5 class="mb-0">{{Auth::user()->PackageType}}</h5>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 mt-md-0 mt-4">
                   <div class="card">
-                    <div class="card-header mx-4 p-3 text-center">
-                      <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                        <i class="fab fa-paypal opacity-10"></i>
-                      </div>
-                    </div>
-                    <div class="card-body pt-0 p-3 text-center">
-                      <h6 class="text-center mb-0">..</h6>
-                      <span class="text-xs">..</span>
-                      <hr class="horizontal dark my-3">
-                      <h5 class="mb-0">..</h5>
-                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -307,6 +298,7 @@
                       <!-- Button trigger modal -->
 
                       <a class="btn btn-danger mb-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-plus"></i>&nbsp;&nbsp;Pay Bill</a>
+                      <a class="btn btn-success mb-0" data-bs-toggle="" data-bs-target=""><i class=""></i>&nbsp;&nbsp;Ask For Refund</a>
 
 
                       <!-- Modal -->

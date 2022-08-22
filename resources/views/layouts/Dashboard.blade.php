@@ -32,8 +32,8 @@
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
 
         <a class="navbar-brand m-0" href=" {{url('/home')}} " target="_blank">
-        <img src="{{asset('assets\Others\download.png')}}" class="navbar-brand-img h-100" alt="main_logo"> 
-        <span class="ms-1 font-weight-bold">Internet Support</span>
+          <img src="{{asset('assets\Others\download.png')}}" class="navbar-brand-img h-100" alt="main_logo">
+          <span class="ms-1 font-weight-bold">Internet Support</span>
         </a>
       </div>
       <hr class="horizontal dark mt-0">
@@ -204,7 +204,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-uppercase font-weight-bold">Last Payment Done at: </p>
                       <h5 class="font-weight-bolder">
-                      {{$lastPayment->created_at}}
+                        {{$lastPayment->created_at}}
                       </h5>
                       <p class="mb-0">
                         <span class="text-success text-sm font-weight-bolder">Reference: </span> {{$lastPayment->Reference}}
@@ -246,7 +246,7 @@
                       @endforeach
                     </tbody>
                   </table>
-                  
+
                   <div class="chart">
                     <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
                   </div>
@@ -260,86 +260,90 @@
               </div>
             </div>
           </div>
-
-        </div>
-        <div class="row mt-4">
-          <div class="col-lg-7 mb-lg-0 mb-4">
-            <div class="card ">
-              <div class="card-header pb-0 p-3">
-                <div class="d-flex justify-content-between">
-                  <h6 class="mb-2">Last Transaction Details</h6>
-                </div>
-              </div>
-              <div class="table-responsive">
-                <table class="table align-items-center ">
-                  <tbody>
-                    <tr>
-                      <td class="w-30">
-                        <div class="d-flex px-2 py-1 align-items-center">
-                          <div>
-                          <img class="w-75 me-3 mb-0" src="{{asset('assets\Others\human-hand-holding-smartphone-approval-check-icon-payment-made-settlement-screen-showing-qr-code-stock-vector-156912967.jpg')}}" >
-                          </div>
-                          <div class="ms-4">
-                            <p class="text-xs font-weight-bold mb-0">Transaction ID</p>
-                            <h6 class="text-sm mb-0">{{$lastPayment->id}}</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">Refernce</p>
-                          <h6 class="text-sm mb-0">{{$lastPayment->Reference}}</h6>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">Amount</p>
-                          <h6 class="text-sm mb-0">{{$lastPayment->Amount}}</h6>
-                        </div>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <div class="col text-center">
-                          <p class="text-xs font-weight-bold mb-0">Time</p>
-                          <h6 class="text-sm mb-0">{{$lastPayment->created_at}}</h6>
-                        </div>
-                      </td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
           <div class="col-lg-5">
-            <div class="card">
-              <div class="card-header pb-0 p-3">
-                <h6 class="mb-0">Categories</h6>
-              </div>
-              <div class="card-body p-3">
-                <ul class="list-group">
-                  <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                    <div class="d-flex align-items-center">
-                      <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
-                        <i class="ni ni-mobile-button text-white opacity-10"></i>
-                      </div>
-                      <div class="d-flex flex-column">
-                        <h6 class="mb-1 text-dark text-sm">Devices</h6>
-                        <span class="text-xs">250 in stock, <span class="font-weight-bold">346+ sold</span></span>
-                      </div>
-                    </div>
-                    <div class="d-flex">
-                      <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true">Something</i></button>
-                    </div>
-                  </li>
+            <div class="card card-carousel overflow-hidden h-100 p-0">
+              <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
+                <div class="carousel-inner border-radius-lg h-100">
+                  <div class="carousel-item h-100 active" style="background-image: asset('assets\Others\isp.png');
+      background-size: cover;">
+                    <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
 
-                </ul>
+                      <h5 class="text-white mb-1">Conquer the battlefield with our new gaming package</h5>
+                      <p>Non-stop Gaming at a reasonable rate</p>
+                    </div>
+                  </div>
+                  <img class="w-100 h-100 " src="{{asset('assets\Others\gaming-win-1200x630.jpg')}}" alt="logo">
+
+                </div>
+
               </div>
             </div>
+            <button class="carousel-control-prev w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
-
       </div>
-    </main>
+  </div>
+  <div class="row mt-4">
+    
+    <!-- <div class="col-lg-7 mb-lg-0 mb-4">
+      <div class="card ">
+        <div class="card-header pb-0 p-3">
+          <div class="d-flex justify-content-between">
+            <h6 class="mb-2">Last Transaction Details</h6>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center ">
+            <tbody>
+              <tr>
+                <td class="w-30">
+                  <div class="d-flex px-2 py-1 align-items-center">
+                    <div>
+                      <img class="w-75 me-3 mb-0" src="{{asset('assets\Others\human-hand-holding-smartphone-approval-check-icon-payment-made-settlement-screen-showing-qr-code-stock-vector-156912967.jpg')}}">
+                    </div>
+                    <div class="ms-4">
+                      <p class="text-xs font-weight-bold mb-0">Transaction ID</p>
+                      <h6 class="text-sm mb-0">{{$lastPayment->id}}</h6>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="text-center">
+                    <p class="text-xs font-weight-bold mb-0">Refernce</p>
+                    <h6 class="text-sm mb-0">{{$lastPayment->Reference}}</h6>
+                  </div>
+                </td>
+                <td>
+                  <div class="text-center">
+                    <p class="text-xs font-weight-bold mb-0">Amount</p>
+                    <h6 class="text-sm mb-0">{{$lastPayment->Amount}}</h6>
+                  </div>
+                </td>
+                <td class="align-middle text-sm">
+                  <div class="col text-center">
+                    <p class="text-xs font-weight-bold mb-0">Time</p>
+                    <h6 class="text-sm mb-0">{{$lastPayment->created_at}}</h6>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+
+  </div>
+  </main>
   </div>
   @yield('content')
   </div>

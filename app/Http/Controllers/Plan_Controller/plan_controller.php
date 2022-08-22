@@ -27,10 +27,15 @@ class plan_controller extends Controller
     }
     public function changePlan(Request $request,$id){
         $data = Packages::where('id',$id)->pluck('Package_Speed');
-        $username = User::where('name',Auth::user()->name)->pluck('PackageType');
-        $user = User::all()->where('name',Auth::user()->name);
-        // dd($data,$username);
-        dd($user);
+        $username = User::find(Auth::user()->id);
+        // dd($username, $data);
+        // $username -> PackageType = $request->input(Packages::where('id',$id)->pluck('Package_Speed'));
+        // $username->update();
+        dd($username,$data);
+        // return redirect('/ChangePlan') ->with('Message',"Monthly Package Changed");
+        // $user = User::all()->where('name',Auth::user()->name);
+        // // dd($data,$username);
+        // dd($user);
 
     }
 }
